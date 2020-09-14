@@ -1,5 +1,5 @@
 #!/bin/bash
-#显示时间
+/usr/sbin/sshd
 chmod +x /etc/ct/core
 chmod +x /etc/ct/move.sh
 chmod +x /etc/ct/delete.sh
