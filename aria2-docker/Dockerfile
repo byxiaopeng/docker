@@ -1,5 +1,5 @@
 FROM archlinux:latest
-RUN echo y | pacman -Syu
+RUN echo y | pacman -Sy
 RUN echo y | pacman -Syy wget curl git bash jq rclone aria2 openssl openssh
 RUN echo root:123456789 |chpasswd root
 RUN sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
