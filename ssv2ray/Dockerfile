@@ -28,13 +28,6 @@ RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
 RUN chmod +x /usr/bin/v2ray-plugin
 RUN rm -r v2ray-plugin-linux-amd64-v1.3.1.tar.gz
 
-#RUN git clone https://github.com/shadowsocks/v2ray-plugin
-#RUN cd /v2ray-plugin && go build
-#RUN mv /v2ray-plugin/v2ray-plugin /usr/bin/v2ray-plugin
-#RUN chmod +x /usr/bin/v2ray-plugin
-RUN rm -rf /v2ray-plugin
-
-
 RUN mkdir /wwwroot
 RUN git clone https://github.com/xiongbao/we.dog
 RUN mv we.dog/* /wwwroot
