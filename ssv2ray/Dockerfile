@@ -1,7 +1,3 @@
-#FROM debian:latest
-#更新源
-#RUN apt-get -y update && apt-get -y upgrade
-#RUN apt install -y shadowsocks-libev libsodium-dev wget git
 FROM archlinux:latest
 RUN echo y | pacman -Sy
 RUN echo y | pacman -S shadowsocks-libev wget git
@@ -9,10 +5,6 @@ RUN echo y | pacman -S shadowsocks-libev wget git
 #同步系统时间
 RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-#同步系统时间
-#RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-
-#ADD config.json /etc/shadowsocks-libev/config.json
 
 RUN wget -P /usr/bin https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_amd64.tar.gz
 RUN tar -zxvf /usr/bin/caddy_v1.0.4_linux_amd64.tar.gz -C /usr/bin
