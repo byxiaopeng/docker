@@ -1,18 +1,28 @@
-FROM archlinux:latest
-RUN echo y | pacman -Sy
-RUN echo y | pacman -S v2ray glibc wget git
+FROM alpine:latest
+RUN apk add --no-cache --virtual .build-deps ca-certificates nginx curl wget unzip git
+
 #同步系统时间
-RUN ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN apk add tzdata
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN echo "Asia/Shanghai" > /etc/timezone
+RUN apk del tzdata
 
-RUN wget -P /usr/bin https://github.com/caddyserver/caddy/releases/download/v1.0.4/caddy_v1.0.4_linux_amd64.tar.gz
-RUN tar -zxvf /usr/bin/caddy_v1.0.4_linux_amd64.tar.gz -C /usr/bin
-RUN chmod +x /usr/bin/caddy
-RUN mkdir /wwwroot
+RUN mkdir /tmp/v2ray
+RUN curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
+RUN unzip /tmp/v2ray/v2ray.zip -d /tmp/v2ray
+RUN install -m 755 /tmp/v2ray/v2ray /usr/bin/v2ray
+RUN install -m 755 /tmp/v2ray/v2ctl /usr/bin/v2ctl
+RUN rm -rf /tmp/v2ray
+
+# V2Ray new configuration
+RUN install -d /usr/local/etc/v2ray
+
+RUN mkdir /run/nginx
+ADD default.conf /etc/nginx/conf.d/default.conf
+
 RUN git clone https://github.com/xiongbao/we.dog
-RUN mv we.dog/* /wwwroot
+RUN mv we.dog/* /var/lib/nginx/html/
 RUN rm -rf /we.dog
-
-ADD Caddyfile /etc/Caddyfile
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
