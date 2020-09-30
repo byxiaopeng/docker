@@ -33,5 +33,4 @@ EOF
 # start nginx
 nginx
 # Run V2Ray
-
-/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+v2ray -config /usr/local/etc/v2ray/config.json
