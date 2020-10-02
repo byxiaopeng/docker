@@ -13,7 +13,7 @@ cat << EOF > /usr/local/etc/v2ray/config.json
       "clients": [
         {
           "id": "ad806487-2d26-4636-98b6-ab85cc8521f7",
-          "alterId": 64       
+          "alterId": 4       
         }
       ]
     },
@@ -36,6 +36,5 @@ EOF
 # start nginx
 nginx
 # Run V2Ray
-
 /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
 
