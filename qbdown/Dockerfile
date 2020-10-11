@@ -10,5 +10,5 @@ VOLUME /root/.config/qBittorrent
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
-EXPOSE 1234 8999
+EXPOSE 80 8999
 ENTRYPOINT ["/entrypoint.sh"]
