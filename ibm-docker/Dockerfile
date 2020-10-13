@@ -1,4 +1,6 @@
 FROM alpine:latest
+RUN apk update
+RUN apk upgrade
 RUN apk add --no-cache --virtual .build-deps ca-certificates nginx curl wget unzip git
 
 #同步系统时间
@@ -18,11 +20,11 @@ RUN rm -rf /tmp/v2ray
 RUN install -d /usr/local/etc/v2ray
 
 RUN mkdir /run/nginx
-ADD default.conf /etc/nginx/conf.d/default.conf
+#ADD default.conf /etc/nginx/conf.d/default.conf
 
-RUN git clone https://github.com/xiongbao/we.dog
-RUN mv we.dog/* /var/lib/nginx/html/
-RUN rm -rf /we.dog
+#RUN git clone https://github.com/xiongbao/we.dog
+#RUN mv we.dog/* /var/lib/nginx/html/
+#RUN rm -rf /we.dog
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
