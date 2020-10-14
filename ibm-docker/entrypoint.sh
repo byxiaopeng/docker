@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 cat << EOF > /usr/local/etc/v2ray/config.json
 {
   "inbounds": [
