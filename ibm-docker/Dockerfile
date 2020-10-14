@@ -25,7 +25,8 @@ ADD default.conf /etc/nginx/conf.d/default.conf
 #RUN git clone https://github.com/xiongbao/we.dog
 #RUN mv we.dog/* /var/lib/nginx/html/
 #RUN rm -rf /we.dog
-
+ADD gov2 /etc/init.d/gov2
+RUN chmod +x /etc/init.d/gov2
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 EXPOSE 80
