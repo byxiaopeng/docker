@@ -1,13 +1,12 @@
-FROM alpine:latest
-RUN apk update
-RUN apk upgrade
-RUN apk add --no-cache --virtual .build-deps ca-certificates nginx curl wget unzip git
+FROM debian:latest
+#更新源
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt install wget curl bash git unzip cron vim nginx -y
 
 #同步系统时间
-RUN apk add tzdata
+
 RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN echo "Asia/Shanghai" > /etc/timezone
-RUN apk del tzdata
+
 
 RUN mkdir /tmp/v2ray
 RUN curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
