@@ -33,4 +33,5 @@ EOF
 # start nginx
 nginx
 # Run V2Ray
-v2ray -config /usr/local/etc/v2ray/config.json
+/etc/init.d/gov2 start
+tail -f /dev/null
