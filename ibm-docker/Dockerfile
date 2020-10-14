@@ -19,6 +19,7 @@ RUN rm -rf /tmp/v2ray
 RUN install -d /usr/local/etc/v2ray
 
 RUN mkdir /run/nginx
+RUN rm -rf /etc/nginx/sites-enabled/default
 ADD default.conf /etc/nginx/conf.d/default.conf
 
 #RUN git clone https://github.com/xiongbao/we.dog
