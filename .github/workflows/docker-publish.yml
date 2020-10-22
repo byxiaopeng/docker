@@ -3,10 +3,7 @@ on:
   #schedule:
     #- cron: 10 22 * * *
   watch:
-    types: started
-  push:
-    branches:    
-      - master        
+    types: started       
 jobs:
   build:
     runs-on: ubuntu-latest  
@@ -24,30 +21,30 @@ jobs:
     - name: docker ssv2ray
       run: |
         cd /home/runner/work/docker/docker/ssv2ray
-        docker build -t byxiaopeng/ssv2ray .
-        docker push byxiaopeng/ssv2ray
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/ssv2ray .
+        docker push ${{ secrets.DOCKER_USERNAME }}/ssv2ray
     - name: docker gdbot
       run: |
         cd /home/runner/work/docker/docker/gdbot
-        docker build -t byxiaopeng/gdbot .
-        docker push byxiaopeng/gdbot
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/gdbot .
+        docker push ${{ secrets.DOCKER_USERNAME }}/gdbot
     - name: docker v2tls-docker
       run: |
         cd /home/runner/work/docker/docker/v2tls-docker
-        docker build -t byxiaopeng/v2tls-docker .
-        docker push byxiaopeng/v2tls-docker        
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/v2tls-docker .
+        docker push ${{ secrets.DOCKER_USERNAME }}/v2tls-docker        
     - name: docker ibm-docker
       run: |
         cd /home/runner/work/docker/docker/ibm-docker
-        docker build -t byxiaopeng/ibm-docker .
-        docker push byxiaopeng/ibm-docker
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/ibm-docker .
+        docker push ${{ secrets.DOCKER_USERNAME }}/ibm-docker
     - name: docker qbdown
       run: |
         cd /home/runner/work/docker/docker/qbdown
-        docker build -t byxiaopeng/qbdown .
-        docker push byxiaopeng/qbdown
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/qbdown .
+        docker push ${{ secrets.DOCKER_USERNAME }}/qbdown
     - name: docker aria2-docker
       run: |
         cd /home/runner/work/docker/docker/aria2-docker
-        docker build -t byxiaopeng/aria2-docker .
-        docker push byxiaopeng/aria2-docker        
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/aria2-docker .
+        docker push ${{ secrets.DOCKER_USERNAME }}/aria2-docker        
