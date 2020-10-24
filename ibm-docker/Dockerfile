@@ -1,7 +1,7 @@
 FROM debian:latest
 #更新源
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt install wget curl bash git unzip cron vim nginx -y
+RUN apt install wget curl bash git unzip cron vim nginx shadowsocks-libev -y
 
 #同步系统时间
 
@@ -15,6 +15,11 @@ RUN install -m 755 /tmp/v2ray/v2ray /usr/bin/v2ray
 RUN install -m 755 /tmp/v2ray/v2ctl /usr/bin/v2ctl
 RUN rm -rf /tmp/v2ray
 
+RUN wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz
+RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz
+RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
+RUN chmod +x /usr/bin/v2ray-plugin
+RUN rm -r v2ray-plugin-linux-amd64-v1.3.1.tar.gz
 # V2Ray new configuration
 RUN install -d /usr/local/etc/v2ray
 
