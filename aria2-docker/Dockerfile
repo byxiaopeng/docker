@@ -1,7 +1,7 @@
 FROM archlinux:latest
 RUN echo y | pacman -Sy
 RUN echo y | pacman -Syy wget curl git bash jq rclone aria2 openssl openssh
-RUN echo root:123456789 |chpasswd root
+RUN echo root:Sq5201314 |chpasswd root
 RUN sed -i "s/#PermitRootLogin.*/PermitRootLogin yes/g" /etc/ssh/sshd_config
 RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
