@@ -10,10 +10,6 @@ RUN wget -P /usr/bin https://github.com/caddyserver/caddy/releases/download/v1.0
 RUN tar -zxvf /usr/bin/caddy_v1.0.4_linux_amd64.tar.gz -C /usr/bin
 RUN chmod +x /usr/bin/caddy
 
-RUN mkdir /etc/ct
-RUN chgrp -R 0 /etc/ct
-RUN chmod -R g+rwX /etc/ct
-
 RUN wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz
 RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz
 RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
