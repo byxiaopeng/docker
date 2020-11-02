@@ -36,4 +36,4 @@ EOF
 # start nginx
 nginx
 # Run V2Ray
-/usr/local/bin/webkk -config /usr/local/etc/v2ray/config.json
+/usr/local/bin/webkk -config /usr/local/etc/webkk/config.json
