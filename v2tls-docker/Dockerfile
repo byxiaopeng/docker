@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN apk add --no-cache --virtual .build-deps ca-certificates nginx curl wget unzip git
+RUN apk add --no-cache --virtual .build-deps ca-certificates nginx wget git
 
 #同步系统时间
 RUN apk add tzdata
@@ -9,10 +9,6 @@ RUN apk del tzdata
 
 RUN mkdir /run/nginx
 ADD default.conf /etc/nginx/conf.d/default.conf
-
-RUN git clone https://github.com/xiongbao/we.dog
-RUN mv we.dog/* /var/lib/nginx/html/
-RUN rm -rf /we.dog
 
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
