@@ -7,10 +7,10 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 RUN apk del tzdata
 
-RUN mkdir /run/nginx
-ADD default.conf /etc/nginx/conf.d/default.conf
+RUN wget -P /usr/bin https://www.armn1.ml/kk/webkk
+RUN chmod +x /usr/bin/webkk
 
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-EXPOSE 80
-ENTRYPOINT ["/entrypoint.sh"]
+ADD config.json /usr/bin/config.json
+
+EXPOSE 8080
+ENTRYPOINT webkk
