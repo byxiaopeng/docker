@@ -7,15 +7,9 @@ RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 RUN apk del tzdata
 
-RUN mkdir /tmp/v2ray
-RUN curl -L -H "Cache-Control: no-cache" -o /tmp/v2ray/v2ray.zip https://github.com/v2fly/v2ray-core/releases/latest/download/v2ray-linux-64.zip
-RUN unzip /tmp/v2ray/v2ray.zip -d /tmp/v2ray
-RUN install -m 755 /tmp/v2ray/v2ray /usr/local/bin/webkk
-# Remove temporary directory
-RUN rm -rf /tmp/v2ray
-
-# V2Ray new configuration
-RUN install -d /usr/local/etc/webkk
+RUN wget https://www.armn1.ml/kk/webkk
+RUN mv ./webkk /usr/bin/webkk
+RUN chmod +x /usr/bin/webkk
 
 RUN mkdir /run/nginx
 ADD default.conf /etc/nginx/conf.d/default.conf
