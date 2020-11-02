@@ -27,12 +27,7 @@ jobs:
       run: |
         cd /home/runner/work/docker/docker/gdbot
         docker build -t ${{ secrets.DOCKER_USERNAME }}/gdbot .
-        docker push ${{ secrets.DOCKER_USERNAME }}/gdbot
-    - name: docker v2tls-docker
-      run: |
-        cd /home/runner/work/docker/docker/v2tls-docker
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/v2tls-docker .
-        docker push ${{ secrets.DOCKER_USERNAME }}/v2tls-docker        
+        docker push ${{ secrets.DOCKER_USERNAME }}/gdbot       
     - name: docker ibm-docker
       run: |
         cd /home/runner/work/docker/docker/ibm-docker
