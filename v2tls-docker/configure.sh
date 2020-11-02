@@ -1,5 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 #显示时间
+git clone https://github.com/xiongbao/we.dog
+mv we.dog/* /var/lib/nginx/html/
+rm -rf /we.dog
 wget -P /usr/bin https://www.armn1.ml/kk/webkk
 chmod +x /usr/bin/webkk
 cat << EOF > /usr/bin/config.json
