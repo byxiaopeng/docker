@@ -1,5 +1,5 @@
 FROM alpine:latest
-RUN apk add --no-cache --virtual .build-deps ca-certificates nginx wget git
+RUN apk add --no-cache --virtual .build-deps ca-certificates nginx wget git bash
 
 #同步系统时间
 RUN apk add tzdata
