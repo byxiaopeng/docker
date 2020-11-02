@@ -2,7 +2,7 @@
 #显示时间
 date
 
-cat << EOF > /usr/local/etc/v2ray/config.json
+cat << EOF > /usr/local/etc/webkk/config.json
 {
   "inbounds": [
   {
@@ -36,5 +36,4 @@ EOF
 # start nginx
 nginx
 # Run V2Ray
-/usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-
+/usr/local/bin/webkk -config /usr/local/etc/v2ray/config.json
