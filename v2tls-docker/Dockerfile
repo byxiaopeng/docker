@@ -12,5 +12,5 @@ ADD default.conf /etc/nginx/conf.d/default.conf
 
 ADD configure.sh /configure.sh
 RUN chmod +x /configure.sh
-EXPOSE 80
+EXPOSE 8080
 ENTRYPOINT ["/configure.sh"]
