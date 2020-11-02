@@ -10,7 +10,7 @@ RUN apk del tzdata
 RUN mkdir /run/nginx
 ADD default.conf /etc/nginx/conf.d/default.conf
 
-ADD configure.sh /configure.sh
-RUN chmod +x /configure.sh
-EXPOSE 8080
-ENTRYPOINT ["/configure.sh"]
+ADD entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+EXPOSE 80
+ENTRYPOINT ["/entrypoint.sh"]
