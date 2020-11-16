@@ -15,23 +15,6 @@
 * 路径：/ws
 * 底层传输安全：tls
   
-2. [shadowsocks](https://github.com/shadowsocks/shadowsocks-windows/releases/)   
-* 服务器地址: appname.us-south.cf.appdomain.cloud
-* 端口: 443
-* 密码：password
-* 加密：chacha20-ietf-poly1305
-* 插件程序：D:\APP\v2ray-plugin_windows_amd64.exe  //此处要填[v2ray-plugin插件](https://github.com/shadowsocks/v2ray-plugin/releases)下载解压后在电脑上的绝对路径
-* 插件选项: tls;host=appname.us-south.cf.appdomain.cloud;path=/peng
-  
-3. [gost](https://github.com/ginuerzh/gost/releases)  
-* 选择`gost-windows-amd64-*.zip`下载解压后复制gost的exe文件在电脑中的绝对路径，新建run.bat文件编辑内容如下保存后双击运行：      
-```bash
-gost -L :1080 -F wss://appname.us-south.cf.appdomain.cloud:443?path=/gows
-```
-  
-4. [brook](https://github.com/txthinking/brook/releases)  
-* 选择`Brook.exe`下载运行，配置`wsserver`内容`wss://appname.us-south.cf.appdomain.cloud:443/brook`以及密码`password`  
-  
 <details>
 <summary>cloudflare workers example</summary>
 
