@@ -22,11 +22,11 @@ RUN rm -rf /tmp/v2ray
 #RUN chmod +x /etc/gost/gost-linux-amd64-2.11.1
 #RUN mv /etc/gost/gost-linux-amd64-2.11.1 /usr/bin/gost
 
-#RUN wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz
-#RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz
-#RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
-#RUN chmod +x /usr/bin/v2ray-plugin
-#RUN rm -r v2ray-plugin-linux-amd64-v1.3.1.tar.gz
+RUN wget https://github.com/shadowsocks/v2ray-plugin/releases/download/v1.3.1/v2ray-plugin-linux-amd64-v1.3.1.tar.gz
+RUN tar -zxvf v2ray-plugin-linux-amd64-v1.3.1.tar.gz
+RUN mv v2ray-plugin_linux_amd64 /usr/bin/v2ray-plugin
+RUN chmod +x /usr/bin/v2ray-plugin
+RUN rm -r v2ray-plugin-linux-amd64-v1.3.1.tar.gz
 
 
 
